@@ -43,8 +43,21 @@ export class AppComponent implements OnInit {
     }
   }
 
-  load(): void {
-    const url = '/assets/bpmn/initial.bpmn';
+  loadFile(): void {
+    console.log('loading file from local.');
+    (<HTMLInputElement>document.getElementById("txt_localFile")).click();
+  }
+
+  async openLocalDiagram(event: Event) {
+    const element = event.currentTarget as HTMLInputElement;
+    const fileList: FileList | null = element.files;
+    if (fileList) {
+      const path = (window.URL || (window as any).webkitURL).createObjectURL(fileList[0]);
+      this.load(path);
+    }
+  }
+
+  load(url: string): void {
     this.http.get(url, {
       headers: {observe: 'response'}, responseType: 'text'
     }).subscribe(

@@ -2,7 +2,10 @@
   {{title}}
 </h1>
 
-<button (click)="load()">Draw <i class="fa fa-folder-open"></i></button>
+<input type="file" accept="text/bpmn" name="txt_localFile" id="txt_localFile" (change)="openLocalDiagram($event)" style="visibility: hidden; display: none;" />
+<button (click)="loadFile()">Open Local File <i class="fa fa-folder-open"></i></button>
+||
+<button (click)="load('/assets/bpmn/initial.bpmn')">Draw <i class="fa fa-folder-open"></i></button>
 ||
 <button (click)="save()">Save <i class="fa fa-save"></i></button>
 
