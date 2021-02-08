@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Modeler, OriginalPropertiesProvider, PropertiesPanelModule, InjectionNames, OriginalPaletteProvider} from './bpmn-js/bpmn-js';
-import {CustomPropsProvider} from './props-provider/CustomPropsProvider';
-import {CustomPaletteProvider} from "./props-provider/CustomPaletteProvider";
+import {Modeler} from './bpmn-js/bpmn-js';
 import propertiesPanelModule from 'bpmn-js-properties-panel';
 import propertiesProviderModule from './provider/magic'; // 'bpmn-js-properties-panel/lib/provider/camunda';
 import magicModdleDescriptor from './descriptors/magic.json';
+import {saveAs} from 'file-saver';
 
 @Component({
   selector: 'app-root',
@@ -77,7 +76,8 @@ export class AppComponent implements OnInit {
 
   async save() {
     const { xml } = await this.modeler.saveXML();
-    console.log(xml);
+    const blob = new Blob([xml], {type: 'application/xml'});
+    saveAs(blob, 'diagram.bpmn');
   }
 
 }
