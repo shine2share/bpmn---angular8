@@ -58,7 +58,7 @@ function createMagicTabGroups(element, translate) {
   // Create a group called "Black Magic".
   var blackMagicGroup = {
     id: 'black-magic',
-    label: 'Black Magic',
+    label: 'Other properties',
     entries: []
   };
 
@@ -87,7 +87,7 @@ export default function MagicPropertiesProvider(
     // The "magic" tab
     var magicTab = {
       id: 'magic',
-      label: 'Magic',
+      label: 'Other',
       groups: createMagicTabGroups(element, translate)
     };
 

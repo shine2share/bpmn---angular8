@@ -10,28 +10,25 @@ export default function(group, element, translate) {
   // Only return an entry, if the currently selected
   // element is a start event.
 
-  if (is(element, 'bpmn:StartEvent')) {
-    group.entries.push(entryFactory.textField(translate, {
-      id : 'spell',
-      description : 'Apply a black magic spell',
-      label : 'Spell',
-      modelProperty : 'spell'
-    }));
-  }
-  if (is(element, 'bpmn:Task')) {
-    group.entries.push(entryFactory.textField(translate, {
-      id : 'call API',
-      description : 'call a api from server',
-      label : 'API',
-      modelProperty : 'API'
-    }));
-  }
-  if (is(element, 'bpmn:SubProcess')) {
-    group.entries.push(entryFactory.textField(translate, {
-      id : 'call API',
-      description : 'call a api from server',
-      label : 'API',
-      modelProperty : 'API'
-    }));
-  }
+  // if (is(element, 'bpmn:StartEvent')) {
+  //   group.entries.push(entryFactory.textField(translate, {
+  //     id : 'spell',
+  //     description : '',
+  //     label : 'Spell',
+  //     modelProperty : 'spell'
+  //   }));
+  // }
+  group.entries.push(entryFactory.textField(translate, {
+    id : 'pipeline',
+    description : '',
+    label : 'pipeline',
+    modelProperty : 'pipeline'
+  }));
+
+  group.entries.push(entryFactory.textField(translate, {
+    id : 'implementation',
+    description : '',
+    label : 'implementation',
+    modelProperty : 'implementation'
+  }));
 }
